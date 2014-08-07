@@ -1,0 +1,18 @@
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.pdb
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.dll
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.pdb
+C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.csprojResolveAssemblyReference.cache
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.pdb
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.csprojResolveAssemblyReference.cache
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.dll
+C:\Users\Fred\Desktop\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.pdb
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.pdb
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.csprojResolveAssemblyReference.cache
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.dll
+C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.pdb

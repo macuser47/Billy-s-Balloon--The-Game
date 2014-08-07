@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleWarrior", "CastleWarrior\CastleWarrior\CastleWarrior.csproj", "{DEA08C0E-6470-431E-8B3A-FBA3FE64F414}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "CastleWarriorContent", "CastleWarrior\CastleWarriorContent\CastleWarriorContent.contentproj", "{10BAC46B-23D3-4E2E-AE63-0E630607C96C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedContent", "SharedContent\SharedContent.csproj", "{B61EBA8A-398F-4283-B9FC-7791CF3ED194}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEA08C0E-6470-431E-8B3A-FBA3FE64F414}.Debug|x86.ActiveCfg = Debug|x86
+		{DEA08C0E-6470-431E-8B3A-FBA3FE64F414}.Debug|x86.Build.0 = Debug|x86
+		{DEA08C0E-6470-431E-8B3A-FBA3FE64F414}.Release|x86.ActiveCfg = Release|x86
+		{DEA08C0E-6470-431E-8B3A-FBA3FE64F414}.Release|x86.Build.0 = Release|x86
+		{10BAC46B-23D3-4E2E-AE63-0E630607C96C}.Debug|x86.ActiveCfg = Debug|x86
+		{10BAC46B-23D3-4E2E-AE63-0E630607C96C}.Release|x86.ActiveCfg = Release|x86
+		{B61EBA8A-398F-4283-B9FC-7791CF3ED194}.Debug|x86.ActiveCfg = Debug|x86
+		{B61EBA8A-398F-4283-B9FC-7791CF3ED194}.Debug|x86.Build.0 = Debug|x86
+		{B61EBA8A-398F-4283-B9FC-7791CF3ED194}.Release|x86.ActiveCfg = Release|x86
+		{B61EBA8A-398F-4283-B9FC-7791CF3ED194}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
