@@ -37,3 +37,16 @@ C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bi
 C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\SharedContent.dll
 C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\SharedContent.pdb
 C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.pdb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.csprojResolveAssemblyReference.cache
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.exe
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Map1.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\CastleWarrior.exe
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\CastleWarrior.pdb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\SharedContent.dll
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\SharedContent.pdb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.pdb

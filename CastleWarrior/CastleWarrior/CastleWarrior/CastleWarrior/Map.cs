@@ -131,9 +131,17 @@ namespace CastleWarrior
             }
         }
 
-        public bool isBlockSolidAtPosition(int x, int y)
+        public bool IsBlockSolidAtPosition(int x, int y)
         {
-            int blockType = mapContent.map[((y - 1) * mapContent.width) + x];
+            int blockType;
+            try
+            {
+                blockType = mapContent.map[((y - 1) * mapContent.width) + x];
+            }
+            catch
+            {
+                blockType = mapContent.map[x];
+            }
             if (blockType == 1)
                 return true;
             else

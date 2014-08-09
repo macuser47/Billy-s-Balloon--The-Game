@@ -1,3 +1,4 @@
 C:\Users\Paula\Documents\Visual Studio 2010\Projects\CastleWarrior\CastleWarrior\CastleWarriorContent\obj\x86\Debug\CastleWarriorContent.contentprojResolveAssemblyReference.cache
 C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarriorContent\obj\x86\Debug\CastleWarriorContent.contentprojResolveAssemblyReference.cache
 C:\Users\Fred\Desktop\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\obj\x86\Debug\CastleWarriorContent.contentprojResolveAssemblyReference.cache
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\obj\x86\Debug\CastleWarriorContent.contentprojResolveAssemblyReference.cache

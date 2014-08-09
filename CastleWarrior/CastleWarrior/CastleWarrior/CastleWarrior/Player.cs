@@ -303,7 +303,7 @@ namespace CastleWarrior
         endUpScroll:
             #endregion
 
-            moveAndApplyCollision();
+            moveAndApplyCollision(graphicsDevice);
 
             //#region Gravity Control and up input and Collision
             //gravity += 0.1f;
@@ -360,11 +360,17 @@ namespace CastleWarrior
            return new Vector2((int)Math.Round(Position.X / 24), (int)Math.Round(Position.Y / 24));
         }
         
-        public void moveAndApplyCollision()
+        public void moveAndApplyCollision(GraphicsDevice graphicsDevice)
         {
             float slope = (gravity) / (rightVelocity - leftVelocity);
             float diffY = slope;
             float diffX = 1f;
+            //if ((rightVelocity - leftVelocity) > 0)
+            //    diffX = 1f;
+            //else if ((rightVelocity - leftVelocity) < 0)
+            //    diffX = -1f;
+            //else
+            //    diffX = 0;
             Vector2 nextPosition;
             Rectangle checkRectangle;
             bool endWhile;
@@ -375,15 +381,31 @@ namespace CastleWarrior
                 nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity + (counter * diffX), Position.Y + gravity + (counter * diffX) );
                 checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
                 foreach (Block block in Map.blockList)
-                { 
+                {
                     if (block.hasCollision && checkRectangle.Intersects(block.collide))
+                    {
                         endWhile = true;
+                        if (block.Position.Y + 12 < Position.Y)
+                        {
+                            gravity = 0;
+                        }
+                    }
                 }
                 counter++;
             } while (endWhile);
             Position = nextPosition;
+            gravity += 0.1f;
+            //if (map.IsBlockSolidAtPosition((int)getXYinMap().X, ((int)getXYinMap().Y) + 2))
+            //{
+            //    gravity = 0;
+            //}
 
-            if ()
+            if (Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                gravity = -5;
+            }
+                if ((Position.Y < graphicsDevice.Viewport.Height - 47 || gravity < 0))
+                    Position.Y += gravity;
 
         }
     }
