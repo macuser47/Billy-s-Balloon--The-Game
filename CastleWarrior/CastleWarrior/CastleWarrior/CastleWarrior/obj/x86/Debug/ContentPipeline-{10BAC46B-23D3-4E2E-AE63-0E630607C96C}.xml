@@ -7,8 +7,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Map1.xnb</Output>
-      <Time>2014-08-18T14:40:50.9787422-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Map1.xnb</Output>
+      <Time>2014-08-18T17:06:05.1849529-05:00</Time>
     </Item>
     <Item>
       <Source>Blocks\fadedStoneBrick.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb</Output>
-      <Time>2014-08-18T15:36:11.3408236-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb</Output>
+      <Time>2014-08-18T17:06:05.1369382-05:00</Time>
     </Item>
     <Item>
       <Source>Blocks\stoneBrick.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb</Output>
-      <Time>2014-08-18T15:38:27.9752419-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb</Output>
+      <Time>2014-08-18T17:06:05.1399376-05:00</Time>
     </Item>
     <Item>
       <Source>Player.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb</Output>
-      <Time>2014-08-18T14:43:55.087246-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb</Output>
+      <Time>2014-08-18T17:06:05.150941-05:00</Time>
     </Item>
     <Item>
       <Source>Debug.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb</Output>
-      <Time>2014-08-18T14:40:50.9777411-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb</Output>
+      <Time>2014-08-18T17:06:05.1469404-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -53,43 +53,43 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll</Key>
-        <Value>2014-08-18T14:44:15.0154029-05:00</Value>
+        <Key>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll</Key>
+        <Value>2014-08-18T17:06:37.5680134-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-08-05T15:41:25.6095592-05:00</Value>
+        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-06-26T13:12:20.8253825-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
