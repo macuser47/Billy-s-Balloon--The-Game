@@ -14,6 +14,8 @@ namespace CastleWarrior
 {
     class Player
     {
+        bool applyPlayerGravityXYMovement = true;
+
         Texture2D Texture;
 
         float gravity;
@@ -124,7 +126,7 @@ namespace CastleWarrior
             Map.scroll = 0;
             Map.upscroll = 0;
 
-            bool applyPlayerGravityXYMovement = true;
+            applyPlayerGravityXYMovement = true;
 
             playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
 
@@ -373,39 +375,72 @@ namespace CastleWarrior
             //    diffX = 0;
             Vector2 nextPosition;
             Rectangle checkRectangle;
-            bool endWhile;
-            int counter = 0;
-            do
-            {
-                endWhile = false;
-                nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity + (counter * diffX), Position.Y + gravity + (counter * diffX) );
-                checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
-                foreach (Block block in Map.blockList)
-                {
-                    if (block.hasCollision && checkRectangle.Intersects(block.collide))
-                    {
-                        endWhile = true;
-                        if (block.Position.Y + 12 < Position.Y)
-                        {
-                            gravity = 0;
-                        }
-                    }
-                }
-                counter++;
-            } while (endWhile);
-            Position = nextPosition;
             gravity += 0.1f;
+            nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
+            checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+            int loopCount = 0;
+            foreach (Block block in Map.blockList)
+            {
+                if (block.hasCollision && checkRectangle.Intersects(block.collide))
+                {
+                    while (checkRectangle.Intersects(block.collide))
+                    {
+                        if (gravity > 0)
+                            Position.Y -= 1;
+                        else if (gravity < 0)
+                            Position.Y += 1;
+                        //else
+                        //    Position.Y -= 1;
+                        
+                        if (rightVelocity - leftVelocity > 0)
+                            Position.X -= 1;
+                        else if (rightVelocity - leftVelocity < 0)
+                            Position.X += 1;
+
+                        nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
+                        checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+                        loopCount++;
+                    }
+                    Console.WriteLine("Lopp Count = {0}", loopCount);
+                    nextPosition = new Vector2(Position.X, Position.Y + gravity);
+                    //if (Position.Y + (Texture.Height / 2) < block.Position.Y - 12)
+                        gravity = 0;
+                }
+            }
+            nextPosition = new Vector2(nextPosition.X, nextPosition.Y - gravity);
+            //bool endWhile;
+            //int counter = 0;
+            //do     
+            //{
+            //    endWhile = false;
+            //    nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity + (counter * diffX), Position.Y + gravity + (counter * diffX) );
+            //    checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+            //    foreach (Block block in Map.blockList)
+            //    {
+            //        if (block.hasCollision && checkRectangle.Intersects(block.collide))
+            //        {
+            //            endWhile = true;
+            //            if (block.Position.Y + 12 < Position.Y)
+            //            {
+            //                gravity = 0;
+            //            }
+            //        }
+            //    }
+            //    counter++;
+            //} while (endWhile);
+            Position = nextPosition;
             //if (map.IsBlockSolidAtPosition((int)getXYinMap().X, ((int)getXYinMap().Y) + 2))
             //{
             //    gravity = 0;
             //}
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space))
+            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 && loopCount == 1)
             {
                 gravity = -5;
             }
-                if ((Position.Y < graphicsDevice.Viewport.Height - 47 || gravity < 0))
-                    Position.Y += gravity;
+
+            if ((Position.Y < graphicsDevice.Viewport.Height - 47 || gravity < 0) && applyPlayerGravityXYMovement)
+                Position.Y += gravity;
 
         }
     }
