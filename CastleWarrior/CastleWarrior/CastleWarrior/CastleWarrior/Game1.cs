@@ -74,7 +74,7 @@ namespace CastleWarrior
             currentMap.Generate(stoneBrick, fadedStoneBrick);
 
             player1Texture = Content.Load<Texture2D>("Player");
-            player1.Initialize(player1Texture, new Vector2(45, 2), currentMap.Width, currentMap.Height, GraphicsDevice);
+            player1.Initialize(player1Texture, new Vector2(45, 2), currentMap.Width, currentMap.Height, GraphicsDevice, 0.25f);
 
         }
 

@@ -14,6 +14,7 @@ namespace CastleWarrior
 {
     class Player
     {
+        float scale;
         bool applyPlayerGravityXYMovement = true;
 
         Texture2D Texture;
@@ -30,9 +31,17 @@ namespace CastleWarrior
 
         public int Health { get; set; }
 
-        public void Initialize(Texture2D texture, Vector2 pos, int mapWidth, int mapHeight, GraphicsDevice graphicsDevice)
+        public float textWidth { get { return Texture.Width * scale; } }
+
+        public float textHeight { get { return Texture.Height * scale; } }
+
+        public void Initialize(Texture2D texture, Vector2 pos, int mapWidth, int mapHeight, GraphicsDevice graphicsDevice, float scale)
+
         {
             #region Set Variables / Objects
+
+            this.scale = scale;
+
             Texture = texture;
 
             gravity = 0;
@@ -41,7 +50,7 @@ namespace CastleWarrior
 
             Health = 100;
 
-            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
 
             Position.X *= 24;
             Position.Y *= 24;
@@ -128,7 +137,7 @@ namespace CastleWarrior
 
             applyPlayerGravityXYMovement = true;
 
-            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
 
             #region Scroll map down in case of map being too far up
             foreach (Block block in Map.blockList)
@@ -324,7 +333,7 @@ namespace CastleWarrior
             //            while (block.hasCollision && playerHitBox.Intersects(block.collide))
             //            {
             //                Position.Y += 1;
-            //                playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+            //                playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
             //            }
             //            return;
             //        }
@@ -332,7 +341,7 @@ namespace CastleWarrior
             //        while (block.hasCollision && playerHitBox.Intersects(block.collide))
             //        {
             //            Position.Y -= 1;
-            //            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+            //            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
             //        }
             //        Position.Y += 1;
 
@@ -353,7 +362,7 @@ namespace CastleWarrior
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(Texture, Position, Color.White);
+            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, new Vector2(0, 0), 0.25f, SpriteEffects.None, 0f);
             spriteBatch.End();
         }
 
@@ -377,7 +386,7 @@ namespace CastleWarrior
             Rectangle checkRectangle;
             gravity += 0.1f;
             nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
-            checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+            checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
             int loopCount = 0;
             foreach (Block block in Map.blockList)
             {
@@ -398,23 +407,23 @@ namespace CastleWarrior
                             Position.X += 1;
 
                         nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
-                        checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+                        checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
                         loopCount++;
                     }
                     Console.WriteLine("Lopp Count = {0}", loopCount);
                     nextPosition = new Vector2(Position.X, Position.Y + gravity);
-                    //if (Position.Y + (Texture.Height / 2) < block.Position.Y - 12)
+                    //if (Position.Y + ((int)textHeight / 2) < block.Position.Y - 12)
                         gravity = 0;
                 }
             }
-            nextPosition = new Vector2(nextPosition.X, nextPosition.Y - gravity);
+            nextPosition = new Vector2(nextPosition.X, Position.Y);
             //bool endWhile;
             //int counter = 0;
             //do     
             //{
             //    endWhile = false;
             //    nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity + (counter * diffX), Position.Y + gravity + (counter * diffX) );
-            //    checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, Texture.Width, Texture.Height);
+            //    checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
             //    foreach (Block block in Map.blockList)
             //    {
             //        if (block.hasCollision && checkRectangle.Intersects(block.collide))
