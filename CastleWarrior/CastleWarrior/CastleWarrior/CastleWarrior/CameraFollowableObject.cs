@@ -436,20 +436,23 @@ namespace CastleWarrior
 
             if (Math.Abs(verticalSum) > Math.Abs(horizontalSum)) // start with Y, if collision = then try X
             {
-                gravity = 0;
-                correctCollision(smallestCorrectionY, false);
+                if (verticalSum < 0)
+                    gravity = 0;
+                else
+                    gravity = 0.1f;
+                correctCollision(smallestCorrectionY, false, verticalSum);
                 checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
                 if (IsCollidingWithBlocks(checkRectangle))
-                    correctCollision(smallestCorrectionX, true);
+                    correctCollision(smallestCorrectionX, true, verticalSum);
                 else
                     directionX = DirectionX.None;
             }
             else if (Math.Abs(horizontalSum) > Math.Abs(verticalSum)) // start with X, if collision = then try Y
             {
-                correctCollision(smallestCorrectionX, true);
+                correctCollision(smallestCorrectionX, true, verticalSum);
                 checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
                 if (IsCollidingWithBlocks(checkRectangle))
-                    correctCollision(smallestCorrectionY, false);
+                    correctCollision(smallestCorrectionY, false, verticalSum);
                 else
                     directionY = DirectionY.None;
             }
@@ -459,19 +462,23 @@ namespace CastleWarrior
                 #region Account for Zeros (Cancelling)
                 if (smallestCorrectionX.X > smallestCorrectionY.Y) // start with Y
                 {
-                    correctCollision(smallestCorrectionY, false);
+                    if (verticalSum < 0)
+                        gravity = 0;
+                    else
+                        gravity = 0.1f;
+                    correctCollision(smallestCorrectionY, false, verticalSum);
                     checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
                     if (IsCollidingWithBlocks(checkRectangle))
-                        correctCollision(smallestCorrectionX, true);
+                        correctCollision(smallestCorrectionX, true, verticalSum);
                     else
                         directionX = DirectionX.None;
                 }
                 else // start with X
                 {
-                    correctCollision(smallestCorrectionX, true);
+                    correctCollision(smallestCorrectionX, true, verticalSum);
                     checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
                     if (IsCollidingWithBlocks(checkRectangle))
-                        correctCollision(smallestCorrectionY, false);
+                        correctCollision(smallestCorrectionY, false, verticalSum);
                     else
                         directionY = DirectionY.None;
                 }
@@ -480,6 +487,8 @@ namespace CastleWarrior
             
             nextPosition = new Vector2(nextPosition.X, nextPosition.Y - gravity);
             Position = nextPosition;
+
+            Console.WriteLine(gravity);
 
             if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 /*&& loopCount == 1*/)
             {
@@ -490,7 +499,7 @@ namespace CastleWarrior
                 Position.Y += gravity;
 
         }
-
+        #region Collision Functions
         private bool IsCollidingWithBlocks(Rectangle rect)
         {
             foreach(Block block in Map.blockList)
@@ -560,16 +569,16 @@ namespace CastleWarrior
             return count;
         }
 
-        private void correctCollision(CorrectionVector2 correction, bool correctHorizontal)
+        private void correctCollision(CorrectionVector2 correction, bool correctHorizontal, int sumVert)
         {
             if (correctHorizontal) // horizontal
             {
                 nextPosition.X += correction.X * (int)correction.DirectionX;
-                Console.WriteLine("X: {0}", (int)correction.DirectionX);
+                //Console.WriteLine("X: {0}", (int)correction.DirectionX);
             }
             else // vertical
                 nextPosition.Y += correction.Y * (int)correction.DirectionY;
-        }
+       }
 
         private CorrectionVector2 getSmallestCorrectionX(DirectionX directionX, List<CorrectionVector2> corrections)
         {
@@ -597,6 +606,15 @@ namespace CastleWarrior
             }
 
             return smallest;
+        }
+        #endregion
+
+        private void finalCorrections()
+        {
+            if (gravity == 5)
+            {
+
+            }
         }
 
     }
