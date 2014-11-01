@@ -27,6 +27,8 @@ namespace CastleWarrior
 
         Rectangle playerHitBox;
 
+        private Vector2 nextPosition;
+
         public int rightVelocity { get; set; }
 
         public int leftVelocity { get; set; }
@@ -36,6 +38,28 @@ namespace CastleWarrior
         public float textWidth { get { return Texture.Width * scale; } }
 
         public float textHeight { get { return Texture.Height * scale; } }
+
+        public struct CorrectionVector2
+        {
+            public DirectionX DirectionX;
+            public DirectionY DirectionY;
+            public float X;
+            public float Y;
+        }
+
+        public enum DirectionX
+        {
+            Left = -1,
+            None = 0,
+            Right = 1
+        }
+
+        public enum DirectionY
+        {
+            Up = -1,
+            None = 0,
+            Down = 1
+        }
 
         public void Initialize(Texture2D texture, Vector2 pos, int mapWidth, int mapHeight, GraphicsDevice graphicsDevice, float scale)
         {
@@ -332,20 +356,23 @@ namespace CastleWarrior
 
         public void moveAndApplyCollision(GraphicsDevice graphicsDevice)
         {
-            float slope = (gravity) / (rightVelocity - leftVelocity);
+            /*float slope = (gravity) / (rightVelocity - leftVelocity);
             float diffY = slope;
-            float diffX = 1f;
+            float diffX = 1f;*/
 
-            Vector2 nextPosition;
+            //Vector2 nextPosition;
             Rectangle checkRectangle;
             gravity += 0.1f;
             nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
             checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
-            int loopCount = 0;
+            #region Old Collision System
+            /*int loopCount = 0;
+
             foreach (Block block in Map.blockList)
             {
                 if (block.hasCollision && checkRectangle.Intersects(block.collide))
                 {
+
                     while (checkRectangle.Intersects(block.collide))
                     {
                         if (gravity > 0)
@@ -368,9 +395,93 @@ namespace CastleWarrior
                 }
             }
             nextPosition = new Vector2(nextPosition.X, Position.Y);
+            Position = nextPosition;*/
+            #endregion
+
+            List<CorrectionVector2> corrections = new List<CorrectionVector2>();
+
+            foreach (Block block in Map.blockList)
+            {
+                if (block.hasCollision && checkRectangle.Intersects(block.collide))
+                    corrections.Add(GetCorrectionVector(checkRectangle, block));
+            }
+
+            #region Sum up directions
+            int horizontalSum = SumHorizontal(corrections);
+            int verticalSum = SumVertical(corrections);
+
+            DirectionX directionX = DirectionX.None;
+            DirectionY directionY = DirectionY.None;
+
+
+            if (horizontalSum <= (int)DirectionX.Left)
+                directionX = DirectionX.Left;
+            else if (horizontalSum >= (int)DirectionX.Right)
+                directionX = DirectionX.Right;
+            else
+                directionX = DirectionX.None; // if they cancel each other out, i.e 2 Left and 2 Right
+
+
+            if (verticalSum <= (float)DirectionY.Up)
+                directionY = DirectionY.Up;
+            else if (verticalSum >= (float)DirectionY.Down)
+                directionY = DirectionY.Down;
+            else
+                directionY = DirectionY.None; // if they cancel each other out, i.e 1 Up and 1 Down
+            #endregion
+
+            #region Correct Player Position
+            CorrectionVector2 smallestCorrectionY = getSmallestCorrectionY(directionY, corrections);
+            CorrectionVector2 smallestCorrectionX = getSmallestCorrectionX(directionX, corrections);
+
+            if (Math.Abs(verticalSum) > Math.Abs(horizontalSum)) // start with Y, if collision = then try X
+            {
+                gravity = 0;
+                correctCollision(smallestCorrectionY, false);
+                checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
+                if (IsCollidingWithBlocks(checkRectangle))
+                    correctCollision(smallestCorrectionX, true);
+                else
+                    directionX = DirectionX.None;
+            }
+            else if (Math.Abs(horizontalSum) > Math.Abs(verticalSum)) // start with X, if collision = then try Y
+            {
+                correctCollision(smallestCorrectionX, true);
+                checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
+                if (IsCollidingWithBlocks(checkRectangle))
+                    correctCollision(smallestCorrectionY, false);
+                else
+                    directionY = DirectionY.None;
+            }
+            #endregion
+            else
+            {
+                #region Account for Zeros (Cancelling)
+                if (smallestCorrectionX.X > smallestCorrectionY.Y) // start with Y
+                {
+                    correctCollision(smallestCorrectionY, false);
+                    checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
+                    if (IsCollidingWithBlocks(checkRectangle))
+                        correctCollision(smallestCorrectionX, true);
+                    else
+                        directionX = DirectionX.None;
+                }
+                else // start with X
+                {
+                    correctCollision(smallestCorrectionX, true);
+                    checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
+                    if (IsCollidingWithBlocks(checkRectangle))
+                        correctCollision(smallestCorrectionY, false);
+                    else
+                        directionY = DirectionY.None;
+                }
+                #endregion
+            }
+            
+            nextPosition = new Vector2(nextPosition.X, nextPosition.Y - gravity);
             Position = nextPosition;
 
-            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 && loopCount == 1)
+            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 /*&& loopCount == 1*/)
             {
                 gravity = -5;
             }
@@ -378,6 +489,114 @@ namespace CastleWarrior
             if ((Position.Y < graphicsDevice.Viewport.Height - 47 || gravity < 0) && applyPlayerGravityXYMovement)
                 Position.Y += gravity;
 
+        }
+
+        private bool IsCollidingWithBlocks(Rectangle rect)
+        {
+            foreach(Block block in Map.blockList)
+            {
+                if (rect.Intersects(block.collide) && block.hasCollision)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public CorrectionVector2 GetCorrectionVector(Rectangle player, Block block)
+        {
+            CorrectionVector2 ret = new CorrectionVector2();
+
+            float x1 = Math.Abs(player.Right - block.collide.Left);
+            float x2 = Math.Abs(player.Left - block.collide.Right);
+            float y1 = Math.Abs(player.Bottom - block.collide.Top);
+            float y2 = Math.Abs(player.Top - block.collide.Bottom);
+
+            // calculate displacement along X-axis
+            if (x1 < x2)
+            {
+                ret.X = x1;
+                ret.DirectionX = DirectionX.Left;
+            }
+            else if (x1 > x2)
+            {
+                ret.X = x2;
+                ret.DirectionX = DirectionX.Right;
+            }
+
+            // calculate displacement along Y-axis
+            if (y1 < y2)
+            {
+                ret.Y = y1;
+                ret.DirectionY = DirectionY.Up;
+            }
+            else if (y1 > y2)
+            {
+                ret.Y = y2;
+                ret.DirectionY = DirectionY.Down;
+            }
+
+            return ret;
+        }
+
+        private int SumHorizontal(List<CorrectionVector2> list)
+        {
+            int count = 0;
+            foreach (CorrectionVector2 vector in list)
+            {
+                count += (int)vector.DirectionX;
+            }
+
+            return count;
+        }
+
+        private int SumVertical(List<CorrectionVector2> list)
+        {
+            int count = 0;
+            foreach (CorrectionVector2 vector in list)
+            {
+                count += (int)vector.DirectionY;
+            }
+
+            return count;
+        }
+
+        private void correctCollision(CorrectionVector2 correction, bool correctHorizontal)
+        {
+            if (correctHorizontal) // horizontal
+            {
+                nextPosition.X += correction.X * (int)correction.DirectionX;
+                Console.WriteLine("X: {0}", (int)correction.DirectionX);
+            }
+            else // vertical
+                nextPosition.Y += correction.Y * (int)correction.DirectionY;
+        }
+
+        private CorrectionVector2 getSmallestCorrectionX(DirectionX directionX, List<CorrectionVector2> corrections)
+        {
+            CorrectionVector2 smallest = new CorrectionVector2();
+            smallest.X = int.MaxValue;
+
+            foreach (CorrectionVector2 correction in corrections)
+            {
+                if (correction.DirectionX == directionX && correction.X < smallest.X)
+                    smallest = correction;
+            }
+
+            return smallest;
+        }
+
+        private CorrectionVector2 getSmallestCorrectionY(DirectionY directionY, List<CorrectionVector2> corrections)
+        {
+            CorrectionVector2 smallest = new CorrectionVector2();
+            smallest.Y = int.MaxValue;
+
+            foreach (CorrectionVector2 correction in corrections)
+            {
+                if (correction.DirectionY == directionY && correction.Y < smallest.Y)
+                    smallest = correction;
+            }
+
+            return smallest;
         }
 
     }

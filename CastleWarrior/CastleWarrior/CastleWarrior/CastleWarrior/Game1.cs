@@ -30,6 +30,9 @@ namespace CastleWarrior
         Texture2D player1Texture;
         Player player1 = new Player();
 
+        Texture2D clickTexture;
+        Button testButton = new Button();
+
         SpriteFont debug;
 
         public static bool isDebugging = false;
@@ -51,6 +54,8 @@ namespace CastleWarrior
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -73,9 +78,13 @@ namespace CastleWarrior
             currentMap.LoadMap("Map1", Content);
             currentMap.Generate(stoneBrick, fadedStoneBrick);
 
+            clickTexture = Content.Load<Texture2D>("Yay");
+
             player1Texture = Content.Load<Texture2D>("Player");
             player1.Initialize(player1Texture, new Vector2(45, 2), currentMap.Width, currentMap.Height, GraphicsDevice, 0.25f);
 
+            Vector2 buttonPosition = new Vector2(300,300);
+            testButton.Initialize(player1Texture, clickTexture, buttonPosition, false);
         }
 
         /// <summary>
@@ -102,6 +111,8 @@ namespace CastleWarrior
             currentMap.Update();
             player1.Update(GraphicsDevice);
 
+            testButton.isPressed();
+
             base.Update(gameTime);
         }
 
@@ -125,6 +136,8 @@ namespace CastleWarrior
                 spriteBatch.DrawString(debug, Map.upscroll.ToString(), new Vector2(200, 300), Color.White);
             }
             spriteBatch.End();
+
+            testButton.Draw(spriteBatch);
 
 
             base.Draw(gameTime);
