@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <!-- TODO: replace this Asset with your own XML asset data. -->
+  <Asset Type="SharedContent.MenuContent">
+    <type>hover</type>
+    <width>500</width>
+    <height>300</height>
+    <backgroundimage></backgroundimage>
+    <backgroundcolor>FF00BFFF</backgroundcolor>
+    <textboxes>
+      <Item>
+        <font>Arial14</font>
+        <_string>The quick brown fox jumped over the lazy dogs. The quick brown fox jumped over the lazy dogs.</_string>
+        <numberoflines>2</numberoflines>
+        <position>100 200</position>
+      </Item>
+      <Item>
+        <font>Arial14</font>
+        <_string>Click Billy To Close This Window.</_string>
+        <numberoflines>1</numberoflines>
+        <position>150 50</position>
+      </Item>
+    </textboxes>
+    <buttons>
+      <Item>
+        <id>Button1</id>
+        <uptexture>Player</uptexture>
+        <downtexture>Yay</downtexture>
+        <position>0 0</position>
+        <active>true</active>
+      </Item>
+    </buttons>
+    <textures>
+      <Item>
+        <src>Yay</src>
+        <position>250 150</position>
+      </Item>
+    </textures>
+  </Asset>
+  
+</XnaContent>

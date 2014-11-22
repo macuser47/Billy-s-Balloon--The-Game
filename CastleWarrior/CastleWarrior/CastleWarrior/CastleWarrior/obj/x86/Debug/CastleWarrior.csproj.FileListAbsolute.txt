@@ -43,7 +43,6 @@ C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWar
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb
-C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Map1.xnb
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\CastleWarrior.exe
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\CastleWarrior.pdb
@@ -64,3 +63,6 @@ C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The
 C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.exe
 C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\CastleWarrior.pdb
 C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Yay.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Maps\Map1.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Menus\testMenu.xnb
+C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\FRAMEWORK_FONTS\Arial14.xnb

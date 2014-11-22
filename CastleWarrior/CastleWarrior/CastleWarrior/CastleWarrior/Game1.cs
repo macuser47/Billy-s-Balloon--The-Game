@@ -37,6 +37,8 @@ namespace CastleWarrior
 
         public static bool isDebugging = false;
 
+        MenuHandler menuHandler;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,6 +58,10 @@ namespace CastleWarrior
             base.Initialize();
 
             IsMouseVisible = true;
+
+            menuHandler = new MenuHandler();
+
+            menuHandler.ToggleMenu("testMenu", Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -84,7 +90,8 @@ namespace CastleWarrior
             player1.Initialize(player1Texture, new Vector2(45, 2), currentMap.Width, currentMap.Height, GraphicsDevice, 0.25f);
 
             Vector2 buttonPosition = new Vector2(300,300);
-            testButton.Initialize(player1Texture, clickTexture, buttonPosition, false);
+            testButton.Initialize(player1Texture, clickTexture, buttonPosition, false, null);
+
         }
 
         /// <summary>
@@ -107,11 +114,19 @@ namespace CastleWarrior
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            currentMap.Update();
-            player1.Update(GraphicsDevice);
+            if (MenuHandler.currentGameState == MenuHandler.GameState.InGameplay)
+            {
 
-            testButton.isPressed();
+                // TODO: Add your update logic here
+                currentMap.Update();
+                player1.Update(GraphicsDevice);
+
+                testButton.isPressed();
+            }
+
+
+            if (MenuHandler.ButtonPressedInMenu("Button1"))
+                menuHandler.ToggleMenu(null, null, null);
 
             base.Update(gameTime);
         }
@@ -138,6 +153,8 @@ namespace CastleWarrior
             spriteBatch.End();
 
             testButton.Draw(spriteBatch);
+
+            menuHandler.Draw(spriteBatch, graphics, GraphicsDevice, Content);
 
 
             base.Draw(gameTime);

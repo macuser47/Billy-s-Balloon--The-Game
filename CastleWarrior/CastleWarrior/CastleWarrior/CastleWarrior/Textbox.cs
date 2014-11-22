@@ -24,6 +24,8 @@ namespace CastleWarrior
 
         string[] wordList;
 
+        List<string> stringList = new List<string>();
+
         public Textbox(SpriteFont font, string String, int numberOfLines, Vector2 position)
         {
             this.font = font;
@@ -35,17 +37,34 @@ namespace CastleWarrior
         public void Draw(SpriteBatch spriteBatch)
         {
             wordList = String.Split(' ');
-            int wordsPerLine = lineNumbers / wordList.Length;
+            int wordsPerLine = wordList.Length / lineNumbers;
 
-            string tempString = "";
+            stringList = new List<string>();
 
-            foreach (string word in wordList)
+            for (int k = 0; k < lineNumbers; k++)
             {
-                tempString += word;
+                string tempString = "";
+                for (int i = 0; i < wordsPerLine; i++)
+                {
+                    tempString += (wordList[i] + " ");
+                }
+                stringList.Add(tempString);
             }
 
+            //foreach (string word in wordList)
+            //{
+            //    tempString += word;
+            //}
+
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, String, Position, Color.White);
+
+            Vector2 temp = Position;
+
+            foreach (string _string in stringList)
+            {
+                spriteBatch.DrawString(font, _string, temp, Color.White);
+                temp.Y += font.LineSpacing;
+            }
             spriteBatch.End();
         }
     }

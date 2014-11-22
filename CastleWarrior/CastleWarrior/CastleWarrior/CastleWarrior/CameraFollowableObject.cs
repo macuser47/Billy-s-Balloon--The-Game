@@ -134,212 +134,215 @@ namespace CastleWarrior
 
         public void Update(GraphicsDevice graphicsDevice)
         {
-            #region Input Handler
-            #region Check for left/right keyboard input
-            //Check for Keyboard Input
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-            {
-                rightVelocity = 5;
-            }
-            else
-                rightVelocity = 0;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-            {
-                leftVelocity = 5;
-            }
-            else
-                leftVelocity = 0;
-            //}
-            #endregion
-            #endregion
-
-            #region Map and Gravity Manipulation
-            Map.scroll = 0;
-            Map.upscroll = 0;
-
-            applyPlayerGravityXYMovement = true;
-
-            playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
-
-            #region Scroll map down in case of map being too far up
-            foreach (Block block in Map.blockList)
-            {
-                if (block.Position.Y < graphicsDevice.Viewport.Height - 24 && block.isBottomEdge)
+           // if (MenuHandler.currentGameState == MenuHandler.GameState.InGameplay)
+           // {
+                #region Input Handler
+                #region Check for left/right keyboard input
+                //Check for Keyboard Input
+                if (Keyboard.GetState().IsKeyDown(Keys.Right))
                 {
-                    float tempPosY = block.Position.Y;
-                    while (tempPosY < graphicsDevice.Viewport.Height - 24)
-                    {
-                        Map.upscroll += 1;
-                        tempPosY += 1;
-                        Position.Y += 1;
-                    }
-                    goto endDownScrollWhile;
-                }
-            }
-        endDownScrollWhile:
-            #endregion
-
-            #region Scroll map left/right and stop if at edge
-
-            while (Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48)
-            {
-                if (Position.X > graphicsDevice.Viewport.Width - 48)
-                {
-                    bool willScrollRight = true;
-                    foreach (Block block in Map.blockList)
-                    {
-                        if (block.isRightEdge)
-                        {
-                            if (block.Position.X > graphicsDevice.Viewport.Width)
-                            {
-                                willScrollRight = true;
-                            }
-                            else
-                            {
-                                willScrollRight = false;
-                            }
-                        }
-                    }
-                    if (willScrollRight)
-                    {
-                        Position.X -= 1;
-                        Map.scroll -= 1;
-                    }
-                    else
-                    {
-                        if (Position.X > graphicsDevice.Viewport.Width - 25)
-                        {
-                            while (Position.X > graphicsDevice.Viewport.Width - 25)
-                                Position.X -= 1;
-                        }
-                        goto endWhile;
-                    }
-                }
-
-                if (Position.X < 48)
-                {
-                    bool willScrollLeft = true;
-                    foreach (Block block in Map.blockList)
-                    {
-                        if (block.isLeftEdge)
-                        {
-                            if (block.Position.X < -3)
-                            {
-                                willScrollLeft = true;
-                            }
-                            else
-                            {
-                                willScrollLeft = false;
-                            }
-                        }
-                    }
-                    if (willScrollLeft)
-                    {
-                        Map.scroll += 1;
-                        Position.X += 1;
-                    }
-                    else
-                    {
-                        if (Position.X < 0)
-                        {
-                            while (Position.X < 0)
-                                Position.X += 1;
-                        }
-                        goto endWhile;
-                    }
-
-                }
-            }
-        endWhile:
-            #endregion
-
-            #region Scroll up/down and stop scrolling at top and bottom
-            if (Math.Abs(Position.Y - graphicsDevice.Viewport.Height) < 47)
-            {
-                bool willScrollDown = true;
-                foreach (Block block in Map.blockList)
-                {
-                    if (block.isBottomEdge)
-                    {
-                        if (block.Position.Y > graphicsDevice.Viewport.Height - 24)
-                        {
-                            willScrollDown = true;
-                        }
-                        else
-                        {
-                            willScrollDown = false;
-                        }
-                    }
-                }
-                if (willScrollDown)
-                {
-                    Map.upscroll = -(int)gravity;
+                    rightVelocity = 5;
                 }
                 else
+                    rightVelocity = 0;
+
+                if (Keyboard.GetState().IsKeyDown(Keys.Left))
                 {
-                    if (Position.Y > graphicsDevice.Viewport.Height + 3)
-                    {
-                        while (Position.Y > graphicsDevice.Viewport.Height + 3)
-                        {
-                            Position.Y -= 1;
-                            gravity = 0f;
-                        }
-                    }
-                    goto endUpScroll;
+                    leftVelocity = 5;
                 }
+                else
+                    leftVelocity = 0;
+                //}
+                #endregion
+                #endregion
 
+                #region Map and Gravity Manipulation
+                Map.scroll = 0;
+                Map.upscroll = 0;
 
-            }
-            else if (Position.Y < 200)
-            {
+                applyPlayerGravityXYMovement = true;
 
-                bool willScrollUp = true;
+                playerHitBox = new Rectangle((int)Position.X, (int)Position.Y, (int)textWidth, (int)textHeight);
+
+                #region Scroll map down in case of map being too far up
                 foreach (Block block in Map.blockList)
                 {
-                    if (block.isTopEdge)
+                    if (block.Position.Y < graphicsDevice.Viewport.Height - 24 && block.isBottomEdge)
                     {
-                        if (block.Position.Y < -3)
+                        float tempPosY = block.Position.Y;
+                        while (tempPosY < graphicsDevice.Viewport.Height - 24)
                         {
-                            willScrollUp = true;
+                            Map.upscroll += 1;
+                            tempPosY += 1;
+                            Position.Y += 1;
+                        }
+                        goto endDownScrollWhile;
+                    }
+                }
+            endDownScrollWhile:
+                #endregion
+
+                #region Scroll map left/right and stop if at edge
+
+                while (Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48)
+                {
+                    if (Position.X > graphicsDevice.Viewport.Width - 48)
+                    {
+                        bool willScrollRight = true;
+                        foreach (Block block in Map.blockList)
+                        {
+                            if (block.isRightEdge)
+                            {
+                                if (block.Position.X > graphicsDevice.Viewport.Width)
+                                {
+                                    willScrollRight = true;
+                                }
+                                else
+                                {
+                                    willScrollRight = false;
+                                }
+                            }
+                        }
+                        if (willScrollRight)
+                        {
+                            Position.X -= 1;
+                            Map.scroll -= 1;
                         }
                         else
                         {
-                            willScrollUp = false;
+                            if (Position.X > graphicsDevice.Viewport.Width - 25)
+                            {
+                                while (Position.X > graphicsDevice.Viewport.Width - 25)
+                                    Position.X -= 1;
+                            }
+                            goto endWhile;
                         }
                     }
+
+                    if (Position.X < 48)
+                    {
+                        bool willScrollLeft = true;
+                        foreach (Block block in Map.blockList)
+                        {
+                            if (block.isLeftEdge)
+                            {
+                                if (block.Position.X < -3)
+                                {
+                                    willScrollLeft = true;
+                                }
+                                else
+                                {
+                                    willScrollLeft = false;
+                                }
+                            }
+                        }
+                        if (willScrollLeft)
+                        {
+                            Map.scroll += 1;
+                            Position.X += 1;
+                        }
+                        else
+                        {
+                            if (Position.X < 0)
+                            {
+                                while (Position.X < 0)
+                                    Position.X += 1;
+                            }
+                            goto endWhile;
+                        }
+
+                    }
                 }
-                if (willScrollUp)
+            endWhile:
+                #endregion
+
+                #region Scroll up/down and stop scrolling at top and bottom
+                if (Math.Abs(Position.Y - graphicsDevice.Viewport.Height) < 47)
                 {
-                    if (gravity < 0)
+                    bool willScrollDown = true;
+                    foreach (Block block in Map.blockList)
+                    {
+                        if (block.isBottomEdge)
+                        {
+                            if (block.Position.Y > graphicsDevice.Viewport.Height - 24)
+                            {
+                                willScrollDown = true;
+                            }
+                            else
+                            {
+                                willScrollDown = false;
+                            }
+                        }
+                    }
+                    if (willScrollDown)
                     {
                         Map.upscroll = -(int)gravity;
-                        applyPlayerGravityXYMovement = false;
+                    }
+                    else
+                    {
+                        if (Position.Y > graphicsDevice.Viewport.Height + 3)
+                        {
+                            while (Position.Y > graphicsDevice.Viewport.Height + 3)
+                            {
+                                Position.Y -= 1;
+                                gravity = 0f;
+                            }
+                        }
+                        goto endUpScroll;
+                    }
+
+
+                }
+                else if (Position.Y < 200)
+                {
+
+                    bool willScrollUp = true;
+                    foreach (Block block in Map.blockList)
+                    {
+                        if (block.isTopEdge)
+                        {
+                            if (block.Position.Y < -3)
+                            {
+                                willScrollUp = true;
+                            }
+                            else
+                            {
+                                willScrollUp = false;
+                            }
+                        }
+                    }
+                    if (willScrollUp)
+                    {
+                        if (gravity < 0)
+                        {
+                            Map.upscroll = -(int)gravity;
+                            applyPlayerGravityXYMovement = false;
+                        }
+                    }
+                    else
+                    {
+                        if (Position.Y < 3)
+                        {
+                            while (Position.Y < 3)
+                            {
+                                Position.Y += 1;
+                                gravity = 0f;
+                            }
+                        }
+                        goto endUpScroll;
                     }
                 }
                 else
                 {
-                    if (Position.Y < 3)
-                    {
-                        while (Position.Y < 3)
-                        {
-                            Position.Y += 1;
-                            gravity = 0f;
-                        }
-                    }
-                    goto endUpScroll;
+                    Map.upscroll = 0;
                 }
-            }
-            else
-            {
-                Map.upscroll = 0;
-            }
-        endUpScroll:
-            #endregion
+            endUpScroll:
+                #endregion
 
-            moveAndApplyCollision(graphicsDevice);
+                moveAndApplyCollision(graphicsDevice);
 
-            #endregion
+                #endregion
+            //}
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -488,7 +491,7 @@ namespace CastleWarrior
             nextPosition = new Vector2(nextPosition.X, nextPosition.Y - gravity);
             Position = nextPosition;
 
-            Console.WriteLine(gravity);
+            //Console.WriteLine(gravity);
 
             if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 /*&& loopCount == 1*/)
             {
@@ -609,13 +612,6 @@ namespace CastleWarrior
         }
         #endregion
 
-        private void finalCorrections()
-        {
-            if (gravity == 5)
-            {
-
-            }
-        }
 
     }
 }

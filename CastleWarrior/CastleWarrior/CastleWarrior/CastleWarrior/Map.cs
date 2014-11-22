@@ -42,7 +42,7 @@ namespace CastleWarrior
 
         public void LoadMap(string mapString, ContentManager Content)
         {
-            mapContent = Content.Load<MapContent>("Xml/" + mapString);
+            mapContent = Content.Load<MapContent>("Xml/Maps/" + mapString);
 
         }
 

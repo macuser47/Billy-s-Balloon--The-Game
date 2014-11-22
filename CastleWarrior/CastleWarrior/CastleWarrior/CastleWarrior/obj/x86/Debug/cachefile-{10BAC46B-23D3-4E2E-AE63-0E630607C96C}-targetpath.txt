@@ -1,6 +1,8 @@
-Content\Xml\Map1.xnb
+Content\Xml\Maps\Map1.xnb
+Content\Xml\Menus\testMenu.xnb
 Content\Blocks\fadedStoneBrick.xnb
 Content\Blocks\stoneBrick.xnb
 Content\Player.xnb
 Content\Yay.xnb
 Content\Debug.xnb
+Content\FRAMEWORK_FONTS\Arial14.xnb
