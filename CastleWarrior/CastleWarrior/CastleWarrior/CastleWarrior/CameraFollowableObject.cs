@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CastleWarrior
 {
-    class CameraFollowableObject
+    class CameraFollowableObject : PhysicsObject
     {
 
         float scale;
@@ -21,7 +21,7 @@ namespace CastleWarrior
 
         Texture2D Texture;
 
-        float gravity;
+        //float gravity;
 
         public Vector2 Position;
 
@@ -39,27 +39,27 @@ namespace CastleWarrior
 
         public float textHeight { get { return Texture.Height * scale; } }
 
-        public struct CorrectionVector2
-        {
-            public DirectionX DirectionX;
-            public DirectionY DirectionY;
-            public float X;
-            public float Y;
-        }
+        //public struct CorrectionVector2
+        //{
+        //    public DirectionX DirectionX;
+        //    public DirectionY DirectionY;
+        //    public float X;
+        //    public float Y;
+        //}
 
-        public enum DirectionX
-        {
-            Left = -1,
-            None = 0,
-            Right = 1
-        }
+        //public enum DirectionX
+        //{
+        //    Left = -1,
+        //    None = 0,
+        //    Right = 1
+        //}
 
-        public enum DirectionY
-        {
-            Up = -1,
-            None = 0,
-            Down = 1
-        }
+        //public enum DirectionY
+        //{
+        //    Up = -1,
+        //    None = 0,
+        //    Down = 1
+        //}
 
         public void Initialize(Texture2D texture, Vector2 pos, int mapWidth, int mapHeight, GraphicsDevice graphicsDevice, float scale)
         {
@@ -184,9 +184,12 @@ namespace CastleWarrior
 
                 #region Scroll map left/right and stop if at edge
 
-                while (Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48)
+                while (/*Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48*/ Position.X != graphicsDevice.Viewport.Width / 2)
                 {
-                    if (Position.X > graphicsDevice.Viewport.Width - 48)
+                    if ((leftVelocity == 0 && Position.X < graphicsDevice.Viewport.Width / 2) || (rightVelocity == 0 && Position.X > graphicsDevice.Viewport.Width / 2))
+                        goto endWhile;
+
+                    if (/*Position.X > graphicsDevice.Viewport.Width - 48*/ rightVelocity != 0)
                     {
                         bool willScrollRight = true;
                         foreach (Block block in Map.blockList)
@@ -219,7 +222,7 @@ namespace CastleWarrior
                         }
                     }
 
-                    if (Position.X < 48)
+                    if (/*Position.X < 48*/ leftVelocity != 0)
                     {
                         bool willScrollLeft = true;
                         foreach (Block block in Map.blockList)
@@ -339,8 +342,17 @@ namespace CastleWarrior
             endUpScroll:
                 #endregion
 
-                moveAndApplyCollision(graphicsDevice);
+                //moveAndApplyCollision(graphicsDevice);
 
+                List<Rectangle> collidableList = new List<Rectangle>();
+
+                foreach (Block block in Map.blockList)
+                {
+                    if (block.hasCollision)
+                        collidableList.Add(block.collide);
+                }
+
+                Position = base.Update(graphicsDevice, Position, true, 5, rightVelocity, leftVelocity, 0f, 0f, textWidth, textHeight, collidableList, applyPlayerGravityXYMovement);
                 #endregion
             //}
         }
@@ -359,9 +371,9 @@ namespace CastleWarrior
 
         public void moveAndApplyCollision(GraphicsDevice graphicsDevice)
         {
-            /*float slope = (gravity) / (rightVelocity - leftVelocity);
-            float diffY = slope;
-            float diffX = 1f;*/
+            //float slope = (gravity) / (rightVelocity - leftVelocity);
+            //float diffY = slope;
+            //float diffX = 1f;
 
             //Vector2 nextPosition;
             Rectangle checkRectangle;
@@ -369,36 +381,36 @@ namespace CastleWarrior
             nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
             checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
             #region Old Collision System
-            /*int loopCount = 0;
+            //int loopCount = 0;
 
-            foreach (Block block in Map.blockList)
-            {
-                if (block.hasCollision && checkRectangle.Intersects(block.collide))
-                {
+            //foreach (Block block in Map.blockList)
+            //{
+            //    if (block.hasCollision && checkRectangle.Intersects(block.collide))
+            //    {
 
-                    while (checkRectangle.Intersects(block.collide))
-                    {
-                        if (gravity > 0)
-                            Position.Y -= 1;
-                        else if (gravity < 0)
-                            Position.Y += 1;
+            //        while (checkRectangle.Intersects(block.collide))
+            //        {
+            //            if (gravity > 0)
+            //                Position.Y -= 1;
+            //            else if (gravity < 0)
+            //                Position.Y += 1;
 
-                        if (rightVelocity - leftVelocity > 0)
-                            Position.X -= 1;
-                        else if (rightVelocity - leftVelocity < 0)
-                            Position.X += 1;
+            //            if (rightVelocity - leftVelocity > 0)
+            //                Position.X -= 1;
+            //            else if (rightVelocity - leftVelocity < 0)
+            //                Position.X += 1;
 
-                        nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
-                        checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
-                        loopCount++;
-                    }
-                    Console.WriteLine("Loop Count = {0}", loopCount);
-                    nextPosition = new Vector2(Position.X, Position.Y + gravity);
-                    gravity = 0;
-                }
-            }
-            nextPosition = new Vector2(nextPosition.X, Position.Y);
-            Position = nextPosition;*/
+            //            nextPosition = new Vector2(Position.X + rightVelocity - leftVelocity, Position.Y + gravity);
+            //            checkRectangle = new Rectangle((int)nextPosition.X, (int)nextPosition.Y, (int)textWidth, (int)textHeight);
+            //            loopCount++;
+            //        }
+            //        Console.WriteLine("Loop Count = {0}", loopCount);
+            //        nextPosition = new Vector2(Position.X, Position.Y + gravity);
+            //        gravity = 0;
+            //    }
+            //}
+            //nextPosition = new Vector2(nextPosition.X, Position.Y);
+            //Position = nextPosition;
             #endregion
 
             List<CorrectionVector2> corrections = new List<CorrectionVector2>();
@@ -493,7 +505,7 @@ namespace CastleWarrior
 
             //Console.WriteLine(gravity);
 
-            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 /*&& loopCount == 1*/)
+            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0)
             {
                 gravity = -5;
             }
@@ -611,6 +623,7 @@ namespace CastleWarrior
             return smallest;
         }
         #endregion
+        
 
 
     }
