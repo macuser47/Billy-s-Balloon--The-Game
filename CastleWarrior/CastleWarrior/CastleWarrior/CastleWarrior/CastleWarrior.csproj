@@ -79,6 +79,7 @@
     <Compile Include="InteractiveWindow.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MenuHandler.cs" />
+    <Compile Include="PhyscisObject.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CastleWarrior
 {
-    class CameraFollowableObject
+    class CameraFollowableObject : PhyscisObject
     {
 
         float scale;
@@ -21,7 +21,7 @@ namespace CastleWarrior
 
         Texture2D Texture;
 
-        float gravity;
+        //float gravity;
 
         public Vector2 Position;
 
@@ -39,27 +39,27 @@ namespace CastleWarrior
 
         public float textHeight { get { return Texture.Height * scale; } }
 
-        public struct CorrectionVector2
-        {
-            public DirectionX DirectionX;
-            public DirectionY DirectionY;
-            public float X;
-            public float Y;
-        }
+        //public struct CorrectionVector2
+        //{
+        //    public DirectionX DirectionX;
+        //    public DirectionY DirectionY;
+        //    public float X;
+        //    public float Y;
+        //}
 
-        public enum DirectionX
-        {
-            Left = -1,
-            None = 0,
-            Right = 1
-        }
+        //public enum DirectionX
+        //{
+        //    Left = -1,
+        //    None = 0,
+        //    Right = 1
+        //}
 
-        public enum DirectionY
-        {
-            Up = -1,
-            None = 0,
-            Down = 1
-        }
+        //public enum DirectionY
+        //{
+        //    Up = -1,
+        //    None = 0,
+        //    Down = 1
+        //}
 
         public void Initialize(Texture2D texture, Vector2 pos, int mapWidth, int mapHeight, GraphicsDevice graphicsDevice, float scale)
         {
@@ -336,10 +336,28 @@ namespace CastleWarrior
                 {
                     Map.upscroll = 0;
                 }
-            endUpScroll:
+        endUpScroll:
                 #endregion
 
-                moveAndApplyCollision(graphicsDevice);
+            //moveAndApplyCollision(graphicsDevice);
+
+            List<Rectangle> list = new List<Rectangle>();
+            foreach (Block block in Map.blockList)
+            {
+                if (block.hasCollision)
+                    list.Add(block.collide);
+            }
+
+            Position = base.Update(Position, rightVelocity, leftVelocity, 0f, 0f, true, textWidth, textHeight, list, graphicsDevice);
+
+
+            if ((Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Space)) && gravity == 0 /*&& loopCount == 1*/)
+            {
+                gravity = -5;
+            }
+
+            if ((Position.Y < graphicsDevice.Viewport.Height - 47 || gravity < 0) && applyPlayerGravityXYMovement)
+                Position.Y += gravity;
 
                 #endregion
             //}
