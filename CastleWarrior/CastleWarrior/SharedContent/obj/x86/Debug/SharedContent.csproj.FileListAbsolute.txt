@@ -28,3 +28,9 @@ C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The
 C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.dll
 C:\Users\Matthew\Documents\Billy-s-Balloon--The-Game-master\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.pdb
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.pdb
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.dll
+C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\obj\x86\Debug\SharedContent.pdb

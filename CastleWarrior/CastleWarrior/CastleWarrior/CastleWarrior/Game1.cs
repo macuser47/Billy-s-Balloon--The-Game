@@ -119,7 +119,7 @@ namespace CastleWarrior
 
                 // TODO: Add your update logic here
                 currentMap.Update();
-                player1.Update(GraphicsDevice);
+                player1.Update(GraphicsDevice, gameTime);
 
                 testButton.isPressed();
             }

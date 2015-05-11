@@ -20,9 +20,9 @@ namespace CastleWarrior
             base.Initialize(texture, pos, mapWidth, mapHeight, graphicsDevice, scale);
         }
 
-        public void Update(GraphicsDevice graphicsDevice)
+        public void Update(GraphicsDevice graphicsDevice, GameTime gameTime)
         {
-            base.Update(graphicsDevice);
+            base.Update(graphicsDevice, gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)

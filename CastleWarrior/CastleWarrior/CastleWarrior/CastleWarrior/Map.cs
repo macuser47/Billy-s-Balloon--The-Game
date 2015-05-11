@@ -94,10 +94,10 @@ namespace CastleWarrior
                 switch (mapNum)
                 {
                     case 0:
-                        block.Initialize(fadedBrick, false, new Vector2(24 * tempPos.X, 24 * tempPos.Y), right, left, top, bottom);
+                        block.Initialize(fadedBrick, false, new Vector2(GameProperties.TILESIZE * tempPos.X, GameProperties.TILESIZE * tempPos.Y), right, left, top, bottom);
                         break;
                     case 1:
-                        block.Initialize(brick, true, new Vector2(24 * tempPos.X, 24 * tempPos.Y), right, left, top, bottom);
+                        block.Initialize(brick, true, new Vector2(GameProperties.TILESIZE * tempPos.X, GameProperties.TILESIZE * tempPos.Y), right, left, top, bottom);
                         break;
                 }
                 if (tempPos.X == mapContent.width)

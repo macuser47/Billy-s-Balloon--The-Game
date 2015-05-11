@@ -76,6 +76,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="CameraFollowableObject.cs" />
+    <Compile Include="GameProperties.cs" />
     <Compile Include="InteractiveWindow.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MenuHandler.cs" />
