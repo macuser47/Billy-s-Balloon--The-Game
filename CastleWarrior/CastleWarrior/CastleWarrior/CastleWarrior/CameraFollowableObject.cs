@@ -77,47 +77,80 @@ namespace CastleWarrior
             #endregion
 
             #region Initial Scroll to player position
-            while (Position.X > graphicsDevice.Viewport.Width - 50 || Position.X < 50 || Position.Y > graphicsDevice.Viewport.Height - 50 || Position.Y < 50)
+
+            //phase 1
+            while (Position.X != (int)(graphicsDevice.Viewport.Width / 2) || Position.Y != (int)(graphicsDevice.Viewport.Height / 2))
             {
-                if (Position.X > graphicsDevice.Viewport.Width - 50)
+                if (Position.X > (int)(graphicsDevice.Viewport.Width / 2))
                 {
                     Position.X -= 1;
                     Map.scroll -= 1;
                 }
-
-                if (Position.X < 50)
+                else if (Position.X < (int)(graphicsDevice.Viewport.Width / 2))
                 {
                     Position.X += 1;
                     Map.scroll += 1;
                 }
 
-                if (Position.Y > graphicsDevice.Viewport.Height - 50)
+                if (Position.Y > (int)(graphicsDevice.Viewport.Height / 2))
                 {
                     Position.Y -= 1;
                     Map.upscroll -= 1;
                 }
-
-                if (Position.Y < 50)
+                else if (Position.Y < (int)(graphicsDevice.Viewport.Height / 2))
                 {
                     Position.Y += 1;
                     Map.upscroll += 1;
                 }
             }
-            #endregion
 
-            #region Scroll map up in case of map being too far down
+
+            //phase 2
+
             foreach (Block block in Map.blockList)
             {
-                if (block.Position.Y > -3 && block.isTopEdge)
+                if (block.isBottomEdge && block.Position.Y + Map.upscroll > -3 && block.Position.Y  + Map.upscroll < graphicsDevice.Viewport.Height)
                 {
-                    float tempPosY = block.Position.Y;
-                    while (tempPosY > -3)
+                    int tempPosY = (int)block.Position.Y + Map.upscroll;
+                    if (tempPosY < graphicsDevice.Viewport.Height - GameProperties.TILESIZE)
                     {
-                        Map.upscroll -= 1;
-                        tempPosY -= 1;
-                        Position.Y -= 1;
+                        Position.Y += graphicsDevice.Viewport.Height - GameProperties.TILESIZE - tempPosY;
+                        Map.upscroll += graphicsDevice.Viewport.Height - GameProperties.TILESIZE - tempPosY;
+                        tempPosY += graphicsDevice.Viewport.Height - GameProperties.TILESIZE - tempPosY;
                     }
-                    return;
+                }
+
+                if (block.isLeftEdge && block.Position.X + Map.scroll > 0 && block.Position.X + Map.scroll < graphicsDevice.Viewport.Height - (GameProperties.TILESIZE))
+                {
+                    int tempPosX = (int)block.Position.X + Map.scroll;
+                    if (tempPosX > (2 * GameProperties.TILESIZE))
+                    {
+                        Position.X -= tempPosX;
+                        Map.scroll -= tempPosX;
+                        tempPosX -= tempPosX;
+                    }
+                }
+
+                if (block.isRightEdge && block.Position.X + Map.scroll > 0 && block.Position.X + Map.scroll < graphicsDevice.Viewport.Height - (GameProperties.TILESIZE))
+                {
+                    int tempPosX = (int)block.Position.X + Map.scroll;
+                    if (tempPosX < graphicsDevice.Viewport.Width - (GameProperties.TILESIZE))
+                    {
+                        Position.X += graphicsDevice.Viewport.Width - (GameProperties.TILESIZE) - tempPosX;
+                        Map.scroll += graphicsDevice.Viewport.Width - (GameProperties.TILESIZE) - tempPosX;
+                        tempPosX += graphicsDevice.Viewport.Width - (GameProperties.TILESIZE) - tempPosX;
+                    }
+                }
+
+                if (block.isTopEdge && block.Position.Y + Map.upscroll > -3 && block.Position.Y + Map.upscroll < graphicsDevice.Viewport.Height)
+                {
+                    int tempPosY = (int)block.Position.Y + Map.upscroll;
+                    if (tempPosY > -3)
+                    {
+                        Position.Y -= tempPosY + 3;
+                        Map.upscroll -= tempPosY + 3;
+                        tempPosY -= tempPosY + 3;
+                    }
                 }
             }
             #endregion
@@ -232,11 +265,11 @@ namespace CastleWarrior
             endDownScrollWhile:
                 #endregion
 
-                #region Scroll map left/right and stop if at edge
+            #region Scroll map left/right and stop if at edge
 
-                while (Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48)
+                while (/*Position.X > graphicsDevice.Viewport.Width - 48 || Position.X < 48*/ (int)Position.X != (int)(graphicsDevice.Viewport.Width / 2))
                 {
-                    if (Position.X > graphicsDevice.Viewport.Width - 48)
+                    if (Position.X > /*graphicsDevice.Viewport.Width - 48*/ graphicsDevice.Viewport.Width / 2)
                     {
                         bool willScrollRight = true;
                         foreach (Block block in Map.blockList)
@@ -269,7 +302,7 @@ namespace CastleWarrior
                         }
                     }
 
-                    if (Position.X < 48)
+                    if (Position.X < /*48*/ graphicsDevice.Viewport.Width / 2)
                     {
                         bool willScrollLeft = true;
                         foreach (Block block in Map.blockList)
@@ -306,8 +339,8 @@ namespace CastleWarrior
             endWhile:
                 #endregion
 
-                #region Scroll up/down and stop scrolling at top and bottom
-                if (Math.Abs(Position.Y - graphicsDevice.Viewport.Height) < 47)
+            #region Scroll up/down and stop scrolling at top and bottom
+                if (/*Math.Abs(Position.Y - graphicsDevice.Viewport.Height) < 47*/ (int)Position.Y > graphicsDevice.Viewport.Height / 2)
                 {
                     bool willScrollDown = true;
                     foreach (Block block in Map.blockList)
@@ -327,6 +360,7 @@ namespace CastleWarrior
                     if (willScrollDown)
                     {
                         Map.upscroll = -(int)gravity;
+                        Position.Y -= gravity;
                     }
                     else
                     {
@@ -343,7 +377,7 @@ namespace CastleWarrior
 
 
                 }
-                else if (Position.Y < 200)
+                else if (/*Position.Y < 200*/ Position.Y < graphicsDevice.Viewport.Height / 2)
                 {
 
                     bool willScrollUp = true;

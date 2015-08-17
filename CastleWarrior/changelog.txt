@@ -1,0 +1,8 @@
+Changeleog initalted on this build. All builds from this point will have versions. 
+(All builds prior to this will be referred to as Pre-Version builds.)
+
+Pre-Alpha 0.0.1:
+Started 6/14/15 
+- Serious bugs discovered in the scripts that initially scroll the map to the player's position - FIXED
+- Fixed scrolling so that player is centered unless map edges are within view
+

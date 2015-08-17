@@ -71,7 +71,7 @@ namespace CastleWarrior
         protected override void LoadContent()
         {
 
-            Vector2 startingPlayerPosition = new Vector2(45,2);
+            //Vector2 startingPlayerPosition = new Vector2(45,2);
             spriteBatch = new SpriteBatch(GraphicsDevice); // 17 13
 
             #region Block texture initialization
