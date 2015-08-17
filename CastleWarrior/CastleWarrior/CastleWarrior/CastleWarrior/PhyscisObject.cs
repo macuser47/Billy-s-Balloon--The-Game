@@ -14,6 +14,8 @@ namespace CastleWarrior
 {
     class PhyscisObject
     {
+        //Collision implementation based on http://go.colorize.net/xna/2d_collision_response_xna/
+
         public float gravity = 0f;
 
         Vector2 nextPosition;

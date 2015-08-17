@@ -7,8 +7,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Maps\Map1.xnb</Output>
-      <Time>2015-03-29T20:57:29.1817679-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Maps\Map1.xnb</Output>
+      <Time>2015-05-11T18:28:31.8479551-05:00</Time>
     </Item>
     <Item>
       <Source>Xml\Menus\testMenu.xml</Source>
@@ -16,8 +16,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Menus\testMenu.xnb</Output>
-      <Time>2015-03-29T20:57:29.182768-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Xml\Menus\testMenu.xnb</Output>
+      <Time>2015-05-11T18:28:31.8479551-05:00</Time>
     </Item>
     <Item>
       <Source>Blocks\fadedStoneBrick.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb</Output>
-      <Time>2015-03-29T20:57:29.1737677-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\fadedStoneBrick.xnb</Output>
+      <Time>2015-05-11T18:28:31.8429525-05:00</Time>
     </Item>
     <Item>
       <Source>Blocks\stoneBrick.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb</Output>
-      <Time>2015-03-29T20:57:29.1737677-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Blocks\stoneBrick.xnb</Output>
+      <Time>2015-05-11T18:28:31.8429525-05:00</Time>
     </Item>
     <Item>
       <Source>Player.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb</Output>
-      <Time>2015-03-29T20:57:29.1787678-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Player.xnb</Output>
+      <Time>2015-05-11T18:28:31.8459546-05:00</Time>
     </Item>
     <Item>
       <Source>Yay.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Yay.xnb</Output>
-      <Time>2015-03-29T20:57:29.183768-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Yay.xnb</Output>
+      <Time>2015-05-11T18:28:31.8489558-05:00</Time>
     </Item>
     <Item>
       <Source>Debug.spritefont</Source>
@@ -61,8 +61,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb</Output>
-      <Time>2015-03-29T20:57:29.1767678-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\Debug.xnb</Output>
+      <Time>2015-05-11T18:28:31.8449539-05:00</Time>
     </Item>
     <Item>
       <Source>FRAMEWORK_FONTS\Arial14.spritefont</Source>
@@ -70,8 +70,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\FRAMEWORK_FONTS\Arial14.xnb</Output>
-      <Time>2015-03-29T20:57:29.1777678-05:00</Time>
+      <Output>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\FRAMEWORK_FONTS\Arial14.xnb</Output>
+      <Time>2015-05-11T18:28:31.8449539-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -80,15 +80,15 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarriorContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\CastleWarrior\CastleWarrior\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Users\User\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll</Key>
-        <Value>2015-03-29T20:58:52.3914389-05:00</Value>
+        <Key>C:\Users\Fred\Documents\GitHub\Billy-s-Balloon--The-Game\CastleWarrior\CastleWarrior\SharedContent\bin\x86\Debug\SharedContent.dll</Key>
+        <Value>2015-08-16T20:35:41.2949033-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
@@ -115,8 +115,8 @@
         <Value>2011-09-01T17:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-02-07T13:55:47.9244873-06:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-08-01T00:03:04.5675767-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -128,7 +128,7 @@ namespace CastleWarrior
         {
            // if (MenuHandler.currentGameState == MenuHandler.GameState.InGameplay)
             // {
-                #region Setup Time
+                #region Set Up Time
                 previousTime = currentTime;
                 currentTime = (float)gameTime.TotalGameTime.TotalSeconds;
                 deltaTime = currentTime - previousTime;
@@ -137,25 +137,71 @@ namespace CastleWarrior
                 #region Input Handler
             #region Check for left/right keyboard input
             //Check for Keyboard Input
-                if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                    rightVelocity = GameProperties.PLAYERMOVEVELOCITY;
-                else
-                    rightVelocity = 0;
+                if (!GameProperties.GRADUALMOVE)
+                {
+                    if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                        rightVelocity = GameProperties.PLAYERMOVEVELOCITY;
+                    else
+                        rightVelocity = 0;
 
-                if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                    leftVelocity = GameProperties.PLAYERMOVEVELOCITY;
-                else
-                    leftVelocity = 0;
+                    if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                        leftVelocity = GameProperties.PLAYERMOVEVELOCITY;
+                    else
+                        leftVelocity = 0;
 
-                if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                    upVelocity = GameProperties.PLAYERMOVEVELOCITY;
-                else
-                    upVelocity = 0;
+                    if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                        upVelocity = GameProperties.PLAYERMOVEVELOCITY;
+                    else
+                        upVelocity = 0;
 
-                if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                    downVelocity = GameProperties.PLAYERMOVEVELOCITY;
+                    if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                        downVelocity = GameProperties.PLAYERMOVEVELOCITY;
+                    else
+                        downVelocity = 0;
+
+                }
                 else
-                    downVelocity = 0;
+                {
+                    if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                    {
+                        if (rightVelocity < GameProperties.PLAYERMOVEVELOCITY)
+                            rightVelocity += GameProperties.ACCELERATION;
+                    }
+                    else if (rightVelocity > 0)
+                        rightVelocity -= GameProperties.DECELERATION;
+                    else
+                        rightVelocity = 0;
+
+                    if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                    {
+                        if (leftVelocity < GameProperties.PLAYERMOVEVELOCITY)
+                            leftVelocity += GameProperties.ACCELERATION;
+                    }
+                    else if (leftVelocity > 0)
+                        leftVelocity -= GameProperties.DECELERATION;
+                    else
+                        leftVelocity = 0;
+
+                    if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                    {
+                        if (upVelocity < GameProperties.PLAYERMOVEVELOCITY)
+                            upVelocity += GameProperties.ACCELERATION;
+                    }
+                    else if (upVelocity > 0)
+                        upVelocity -= GameProperties.DECELERATION;
+                    else
+                        upVelocity = 0;
+
+                    if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                    {
+                        if (downVelocity < GameProperties.PLAYERMOVEVELOCITY)
+                            downVelocity += GameProperties.ACCELERATION;
+                    }
+                    else if (downVelocity > 0)
+                        downVelocity -= GameProperties.DECELERATION;
+                    else
+                        downVelocity = 0;
+                }
                 //}
                 #endregion
                 #endregion
@@ -350,6 +396,7 @@ namespace CastleWarrior
                     list.Add(block.collide);
             }
 
+            //adjust position based on physics engine
             if (GameProperties.GAMETYPE == "platformer/sidescroller")
                 Position = base.Update(Position, rightVelocity * deltaTime, leftVelocity * deltaTime, 0f, 0f, true, textWidth, textHeight, list, graphicsDevice);
             else if (GameProperties.GAMETYPE == "RPG")

@@ -19,7 +19,13 @@ namespace CastleWarrior
         public static int PLAYERMOVEVELOCITY = 315;
 
         //set whether the player gradually speeds up and slows down or just stop and starts moving upon key press and release
-        public static bool GRADUALMOVE = false;
+        public static bool GRADUALMOVE = true;
+
+        //set the acceleration in pxels per second if GRADUALMOVE is true
+        public static int ACCELERATION = 15;
+
+        //set the deceleration in pixels per second if GRADUALMOVE is true
+        public static int DECELERATION = 20; 
 
     }
 }
